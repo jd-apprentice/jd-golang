@@ -1,0 +1,17 @@
+services:
+  app_name:
+    user: 1000:1000
+    build:
+      context: ../../
+      dockerfile: app.Dockerfile
+      network: host
+    restart: always
+    security_opt:
+      - no-new-privileges
+    env_file:
+      - .env
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
