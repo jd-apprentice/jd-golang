@@ -1,0 +1,10 @@
+*.yml
+*.md
+*.Dockerfile
+Makefile
+.all-contributorsrc
+.env.example
+infra/kubernetes
+infra/terraform
+.github/
+scripts/

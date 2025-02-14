@@ -1,7 +1,7 @@
 all: lint test imports build start
 
 start:
-	./bin/AppName
+	./bin/app_name
 
 dev: path
 	gowatch
@@ -29,10 +29,10 @@ clear:
 
 ## https://github.com/golang-standards/project-layout/issues/113#issuecomment-1336514449
 build: clear fmt
-	GOARCH=amd64 go build -o ./bin/AppName ./src/main.go
+	GOARCH=amd64 go build -o ./bin/app_name ./src/main.go
 
 build-arm: clear fmt
-	GOARCH=arm64 go build -o ./bin/AppName ./src/main.go
+	GOARCH=arm64 go build -o ./bin/app_name ./src/main.go
 
 test:
 	go test -v ./tests
@@ -56,7 +56,7 @@ pods:
 	kubectl get pods -A
 
 compose-up:
-	docker compose -f ./infra/docker/docker-compose.yml up -d --build
+	docker compose -f ./compose.yaml up -d --build
 
 compose-down:
-	docker compose -f ./infra/docker/docker-compose.yml down
+	docker compose -f ./compose.yaml down
